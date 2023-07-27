@@ -10,6 +10,7 @@
                 <p>{{ $comic->description }}</p>
                 <br>
                 <h3>Prezzo:<span class="fw-bold mt-4">{{ $comic->price }}</span></h3>
+                <br>
                 <a href="/">Ritorna alla Home</a>
             </div>
         </div>
