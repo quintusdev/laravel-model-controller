@@ -1,21 +1,6 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body>
+@section('content')
     <div class="bg-dark">
         <div class="container">
             <div class="row">
@@ -24,8 +9,10 @@
                     @forelse ($comics as $comic)
                         <div class="col-3 p-4 d-flex justify-content-center m-5">
                             <div class="card">
-                                <img src="{{ $comic->thumb }}" alt="">
-                                <h5>{{ $comic->series }}</h5>
+                                <a class="text-decoration-none text-black" href="{{ route('comic.show', $comic->id) }}">
+                                    <img src="{{ $comic->thumb }}" alt="">
+                                    <h5>{{ $comic->series }}</h5>
+                                </a>
                             </div>
                         </div>
                     @empty
@@ -37,6 +24,4 @@
             </div>
         </div>
     </div>
-</body>
-
-</html>
+@endsection
